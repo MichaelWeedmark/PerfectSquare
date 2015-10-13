@@ -1,4 +1,11 @@
-﻿using System;
+﻿/*
+*Created by: Michael Weedmark
+*Created on: 13-Oct-2015
+*Created for: Unit #3-09
+*This program calculates perfect squares.
+*/
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -21,11 +28,26 @@ namespace PerfectSquare
         {
             int value = 1;
             int endingValue;
-            int squareRootAsDouble;
+            Double squareRootAsDouble;
             int squareRootAsInteger;
-            int numberOfPerfectSquare;
+            int numberOfPerfectSquare = 0;
 
+            this.lsbList.Items.Clear();
 
+            endingValue = Convert.ToInt32(this.nudValue.Text);
+
+            while (value <= endingValue)
+            {
+                squareRootAsDouble = Math.Sqrt(value);
+                squareRootAsInteger = Convert.ToInt32(squareRootAsDouble);
+
+                if (squareRootAsDouble == squareRootAsInteger)
+                {
+                    numberOfPerfectSquare++;
+                    this.lsbList.Items.Add(value);
+                }
+                value++;
+            }
         }
     }
 }
